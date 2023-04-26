@@ -19,7 +19,7 @@ func main() {
 	// Шифровальная таблица Полибия
 	poliby := [][]string{
 		{"A", "B", "C", "D", "E"},
-		{"F", "G", "H", "I/J", "K"},
+		{"F", "G", "H", "I", "J", "K"},
 		{"L", "M", "N", "O", "P"},
 		{"Q", "R", "S", "T", "U"},
 		{"V", "W", "X", "Y", "Z"},
@@ -60,13 +60,15 @@ func main() {
 	}
 	defer file.Close()
 
+	fmt.Printf("Шифр: %v\n", cipherText)
+
 	_, err = file.WriteString(cipherText)
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 
-	fmt.Println("Текст успешно зашифрован и сохранен в файле", ciperFile)
+	defer fmt.Println("Текст успешно зашифрован и сохранен в файле", ciperFile)
 
 	// б) Считываем зашифрованный текст из файла и расшифровываем его
 
